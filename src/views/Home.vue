@@ -5,11 +5,14 @@
       <span>Custom input label</span>
     </BaseInput>
     <BaseButton @click.native="toggleLogin($event)">
-      <span>test</span>
+      <span>toggle logged</span>
     </BaseButton>
     <p>{{ inputValue }}</p>
     <VoteOptions :options="voteOptions">
-      <template slot-scope="{ option }">
+      <template slot="title">
+        <p>Test title</p>
+      </template>
+      <template slot="option" slot-scope="{ option }">
         <span class="option">{{ option.type }}</span>
       </template>
     </VoteOptions>

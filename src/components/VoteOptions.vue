@@ -1,7 +1,8 @@
 <template>
   <ul class="vote-options">
+    <slot name="title"/>
     <li v-for="option in options" :key="option.id">
-      <slot :option="option"/>
+      <slot name="option" :option="option"/>
     </li>
   </ul>
 </template>
