@@ -16,7 +16,7 @@
         <p>Test title</p>
       </template>
       <template slot="option" slot-scope="{ option }">
-        <span class="option">{{ option.type }}</span>
+        <BaseButton @click.native="vote(option.type)">{{ option.type }}</BaseButton>
       </template>
     </VoteOptions>
   </div>
@@ -49,6 +49,9 @@ export default {
     },
     onInput(inputValue) {
       console.log(inputValue);
+    },
+    vote(voteType) {
+      console.log(voteType);
     }
   }
 };
