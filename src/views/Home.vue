@@ -4,24 +4,34 @@
     <BaseInput v-model="inputValue" @custom-input="onInput($event)">
       <span>Custom input label</span>
     </BaseInput>
-    <BaseButton :text="'toggle login'" @click.native="toggleLogin($event)"/>
+    <BaseButton @click.native="toggleLogin($event)">
+      <span>test</span>
+    </BaseButton>
     <p>{{ inputValue }}</p>
+    <VoteOptions :options="voteOptions">
+      <template slot-scope="{ option }">
+        <span class="option">{{ option.type }}</span>
+      </template>
+    </VoteOptions>
   </div>
 </template>
 
 <script>
 import BaseInput from "../components/BaseInput";
 import BaseButton from "../components/BaseButton";
+import VoteOptions from "../components/VoteOptions";
 import authService from "../services/auth";
 
 export default {
   name: "Home",
   components: {
     BaseInput,
-    BaseButton
+    BaseButton,
+    VoteOptions
   },
   data: () => ({
-    inputValue: ""
+    inputValue: "",
+    voteOptions: [{ id: 1, type: "upvote" }, { id: 2, type: "downvote" }]
   }),
   methods: {
     toggleLogin() {
