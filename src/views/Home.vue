@@ -1,13 +1,16 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
+    <div>
+      <BaseButton @click.native="toggleLogin($event)">
+        <span>toggle logged</span>
+      </BaseButton>
+    </div>
     <BaseInput v-model="inputValue" @custom-input="onInput($event)">
-      <span>Custom input label</span>
+      <p>Custom input label</p>
     </BaseInput>
-    <BaseButton @click.native="toggleLogin($event)">
-      <span>toggle logged</span>
-    </BaseButton>
     <p>{{ inputValue }}</p>
+
     <VoteOptions :options="voteOptions">
       <template slot="title">
         <p>Test title</p>
