@@ -2,7 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
 
-import checkIfIsAdmin from "./services/auth";
+import authService from "./services/auth";
 
 Vue.use(Router);
 
@@ -43,7 +43,7 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    if (checkIfIsAdmin()) {
+    if (authService.checkIfIsAdmin()) {
       next();
     } else {
       next({

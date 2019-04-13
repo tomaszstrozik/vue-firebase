@@ -1,8 +1,14 @@
 import { isAdminKey } from "../defaults";
 
-const checkIfIsAdmin = () => {
-  const isAdminValue = window.localStorage.getItem(isAdminKey);
-  return isAdminValue;
+export default {
+  logIn() {
+    window.localStorage.setItem(isAdminKey, 1);
+  },
+  logOut() {
+    window.localStorage.setItem(isAdminKey, 0);
+  },
+  checkIfIsAdmin() {
+    const isAdminValue = window.localStorage.getItem(isAdminKey);
+    return isAdminValue ? parseInt(isAdminValue) : 0;
+  }
 };
-
-export default checkIfIsAdmin;
